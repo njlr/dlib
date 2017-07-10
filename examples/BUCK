@@ -1,0 +1,12 @@
+cxx_binary(
+  name = 'matrix_ex',
+  srcs = [
+    'matrix_ex.cpp',
+  ],
+  compiler_flags = [
+    '-std=c++11',
+  ],
+  deps = [
+    '//:dlib',
+  ],
+)

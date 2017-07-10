@@ -6,4 +6,8 @@
 build
 dist
 *.egg-info/
-
+/buck-out/
+/.buckd/
+/buckaroo/
+.buckconfig.local
+BUCKAROO_DEPS
