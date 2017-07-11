@@ -1,3 +1,7 @@
+macos_preprocessor_flags = [
+  '-I/opt/X11/include',
+]
+
 cxx_library(
   name = 'dlib',
   header_namespace = '',
@@ -12,7 +16,10 @@ cxx_library(
   ],
   compiler_flags = [
     '-std=c++11',
-    '-DDLIB_ISO_CPP_ONLY=1',
+  ],
+  platform_preprocessor_flags = [
+    ('default', macos_preprocessor_flags),
+    ('^macos.*', macos_preprocessor_flags),
   ],
   visibility = [
     'PUBLIC',

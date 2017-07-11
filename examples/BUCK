@@ -1,3 +1,8 @@
+macos_linker_flags = [
+  '-L/usr/X11/lib',
+  '-lX11',
+]
+
 cxx_binary(
   name = 'matrix_ex',
   srcs = [
@@ -5,6 +10,57 @@ cxx_binary(
   ],
   compiler_flags = [
     '-std=c++11',
+  ],
+  deps = [
+    '//:dlib',
+  ],
+)
+
+cxx_binary(
+  name = 'server_http_ex',
+  srcs = [
+    'server_http_ex.cpp',
+  ],
+  compiler_flags = [
+    '-std=c++11',
+  ],
+  platform_linker_flags = [
+    ('default', macos_linker_flags),
+    ('^macos.*', macos_linker_flags),
+  ],
+  deps = [
+    '//:dlib',
+  ],
+)
+
+cxx_binary(
+  name = 'gui_api_ex',
+  srcs = [
+    'gui_api_ex.cpp',
+  ],
+  compiler_flags = [
+    '-std=c++11',
+  ],
+  platform_linker_flags = [
+    ('default', macos_linker_flags),
+    ('^macos.*', macos_linker_flags),
+  ],
+  deps = [
+    '//:dlib',
+  ],
+)
+
+cxx_binary(
+  name = 'image_ex',
+  srcs = [
+    'image_ex.cpp',
+  ],
+  compiler_flags = [
+    '-std=c++11',
+  ],
+  platform_linker_flags = [
+    ('default', macos_linker_flags),
+    ('^macos.*', macos_linker_flags),
   ],
   deps = [
     '//:dlib',
